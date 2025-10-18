@@ -39,10 +39,8 @@ java {
     }
 }
 
-application {
-    // Define the main class for the application.
-    mainClass = "org.example.TestHsdis"
-    applicationDefaultJvmArgs = listOf(
+tasks.withType(JavaExec::class).configureEach {
+    jvmArgs(
         "-XX:+UnlockDiagnosticVMOptions",
         "-XX:+PrintAssembly",
         "-Xlog:class+load=info",
