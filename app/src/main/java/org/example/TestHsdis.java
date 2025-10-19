@@ -1,7 +1,5 @@
 package org.example;
 
-import java.util.Random;
-
 public class TestHsdis {
 
     private static final int SIZE = 1_000_000;
