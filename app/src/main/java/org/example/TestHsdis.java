@@ -4,33 +4,30 @@ import java.util.Random;
 
 public class TestHsdis {
 
-    public static void main(String... args) {
-        TestHsdis testHsdis = new TestHsdis();
-        var size = 2048;
-        var left = initFloatArray(size);
-        var right = initFloatArray(size);
+    private static final int SIZE = 1_000_000;
+    private static final float[] a = new float[SIZE];
+    private static final float[] b = new float[SIZE];
+    private static final float[] c = new float[SIZE];
 
-        for(int i = 0; i <= 10_000; i++) {
-            var result = testHsdis.addArrays(left, right);
+    public static void main(String[] args) {
+        // Warm up to trigger JIT
+        for (int i = 0; i < SIZE; i++) {
+            a[i] = i;
+            b[i] = i * 2;
         }
+
+        for (int r = 0; r < 10_000; r++) {
+            addArrays();
+        }
+
+        // Print sample
+        System.out.println(c[12345]);
     }
 
-    public static float[] initFloatArray(int length){
-        var floatArray = new float[length];
-
-        Random rand = new Random();
-        for(var i = 0; i<length; i++){
-            floatArray[i] = rand.nextFloat();
+    private static void addArrays() {
+        for (int i = 0; i < SIZE; i++) {
+            c[i] = a[i] + b[i];
         }
-        return floatArray;
-    }
-
-    private float[] addArrays(float[] left, float[] right) {
-        float[] result = new float[left.length];
-        for(int i=0; i < left.length; i++){
-            result[i] = left[i] + right[i];
-        }
-        return result;
     }
 
 }

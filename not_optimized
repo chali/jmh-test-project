@@ -1,0 +1,123 @@
+============================= C2-compiled nmethod ==============================
+----------------------------------- Assembly -----------------------------------
+
+Compiled method (c2) 1586   15 %     4       org.example.TestHsdis::main @ 32 (62 bytes)
+ total in heap  [0x00007af170831310,0x00007af170831700] = 1008
+ relocation     [0x00007af170831460,0x00007af170831480] = 32
+ main code      [0x00007af170831480,0x00007af170831648] = 456
+ stub code      [0x00007af170831648,0x00007af170831660] = 24
+ oops           [0x00007af170831660,0x00007af170831668] = 8
+ metadata       [0x00007af170831668,0x00007af170831678] = 16
+ scopes data    [0x00007af170831678,0x00007af1708316a8] = 48
+ scopes pcs     [0x00007af1708316a8,0x00007af1708316f8] = 80
+ dependencies   [0x00007af1708316f8,0x00007af170831700] = 8
+
+[Disassembly]
+--------------------------------------------------------------------------------
+[Constant Pool (empty)]
+
+--------------------------------------------------------------------------------
+
+[Verified Entry Point]
+  # {method} {0x00007af0db4003e8} 'main' '([Ljava/lang/String;)V' in 'org/example/TestHsdis'
+  0x00007af170831480:   callq           0x7af185b67bd0      ;   {runtime_call os::breakpoint()}
+  0x00007af170831485:   nopw            (%rax, %rax)
+  0x00007af170831490:   movl            %eax, -0x14000(%rsp)
+  0x00007af170831497:   pushq           %rbp
+  0x00007af170831498:   subq            $0x10, %rsp
+  0x00007af17083149c:   cmpl            $0, 0x20(%r15)
+  0x00007af1708314a4:   jne             0x7af17083163c
+  0x00007af1708314aa:   movl            (%rsi), %ebp
+  0x00007af1708314ac:   movq            %rsi, %rdi
+  0x00007af1708314af:   movabsq         $0x7af185c1d1b0, %r10
+  0x00007af1708314b9:   callq           *%r10
+  0x00007af1708314bc:   nopl            (%rax, %rax)        ;   {other}
+  0x00007af1708314c4:   movl            $0x1f40, %esi
+  0x00007af1708314c9:   movabsq         $0x11e000000, %r10  ;   {oop([F{0x000000011e000000})}
+  0x00007af1708314d3:   movabsq         $0x11fb7ea90, %r11  ;   {oop([F{0x000000011fb7ea90})}
+  0x00007af1708314dd:   movabsq         $0x11f7ae180, %r8   ;   {oop([F{0x000000011f7ae180})}
+  0x00007af1708314e7:   jmp             0x7af170831605
+  0x00007af1708314ec:   nopl            (%rax)
+  0x00007af1708314f0:   movl            %edi, %r9d
+  0x00007af1708314f3:   vmovss          0x10(%r8, %r9, 4), %xmm1
+  0x00007af1708314fa:   vaddss          0x10(%r11, %r9, 4), %xmm1, %xmm0
+  0x00007af170831501:   vmovss          %xmm0, 0x10(%r10, %r9, 4)
+  0x00007af170831508:   vmovss          0x14(%r8, %r9, 4), %xmm1
+  0x00007af17083150f:   vaddss          0x14(%r11, %r9, 4), %xmm1, %xmm0
+  0x00007af170831516:   vmovss          %xmm0, 0x14(%r10, %r9, 4)
+  0x00007af17083151d:   vmovss          0x18(%r8, %r9, 4), %xmm1
+  0x00007af170831524:   vaddss          0x18(%r11, %r9, 4), %xmm1, %xmm0
+  0x00007af17083152b:   vmovss          %xmm0, 0x18(%r10, %r9, 4)
+  0x00007af170831532:   vmovss          0x1c(%r8, %r9, 4), %xmm1
+  0x00007af170831539:   vaddss          0x1c(%r11, %r9, 4), %xmm1, %xmm0
+  0x00007af170831540:   vmovss          %xmm0, 0x1c(%r10, %r9, 4)
+  0x00007af170831547:   vmovss          0x20(%r8, %r9, 4), %xmm1
+  0x00007af17083154e:   vaddss          0x20(%r11, %r9, 4), %xmm1, %xmm0
+  0x00007af170831555:   vmovss          %xmm0, 0x20(%r10, %r9, 4)
+  0x00007af17083155c:   vmovss          0x24(%r8, %r9, 4), %xmm1
+  0x00007af170831563:   vaddss          0x24(%r11, %r9, 4), %xmm1, %xmm0
+  0x00007af17083156a:   vmovss          %xmm0, 0x24(%r10, %r9, 4)
+  0x00007af170831571:   vmovss          0x28(%r8, %r9, 4), %xmm1
+  0x00007af170831578:   vaddss          0x28(%r11, %r9, 4), %xmm1, %xmm0
+  0x00007af17083157f:   vmovss          %xmm0, 0x28(%r10, %r9, 4)
+  0x00007af170831586:   vmovss          0x2c(%r11, %r9, 4), %xmm1
+  0x00007af17083158d:   vaddss          0x2c(%r8, %r9, 4), %xmm1, %xmm0
+  0x00007af170831594:   vmovss          %xmm0, 0x2c(%r10, %r9, 4)
+  0x00007af17083159b:   leal            8(%r9), %edi
+  0x00007af17083159f:   cmpl            %ebx, %edi
+  0x00007af1708315a1:   jl              0x7af1708314f0
+  0x00007af1708315a7:   movq            0x458(%r15), %rcx   ; ImmutableOopMap {r10=Oop r11=Oop r8=Oop }
+                                                            ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) org.example.TestHsdis::addArrays@27 (line 28)
+                                                            ; - org.example.TestHsdis::main@39 (line 20)
+  0x00007af1708315ae:   testl           %eax, (%rcx)        ;   {poll}
+  0x00007af1708315b0:   cmpl            $0xf4239, %edi
+  0x00007af1708315b6:   jge             0x7af1708315d4
+  0x00007af1708315b8:   movl            %edi, %r9d
+  0x00007af1708315bb:   movl            $0xf4239, %ebx
+  0x00007af1708315c0:   subl            %r9d, %ebx
+  0x00007af1708315c3:   cmpl            $0x1f40, %ebx
+  0x00007af1708315c9:   cmoval          %esi, %ebx
+  0x00007af1708315cc:   addl            %r9d, %ebx
+  0x00007af1708315cf:   jmp             0x7af1708314f3
+  0x00007af1708315d4:   addl            $8, %r9d
+  0x00007af1708315d8:   vmovss          0x10(%r8, %r9, 4), %xmm1
+  0x00007af1708315df:   vaddss          0x10(%r11, %r9, 4), %xmm1, %xmm0
+  0x00007af1708315e6:   vmovss          %xmm0, 0x10(%r10, %r9, 4)
+  0x00007af1708315ed:   incl            %r9d
+  0x00007af1708315f0:   cmpl            $0xf4240, %r9d
+  0x00007af1708315f7:   jl              0x7af1708315d8
+  0x00007af1708315f9:   movq            0x458(%r15), %r9
+  0x00007af170831600:   incl            %ebp                ; ImmutableOopMap {r10=Oop r11=Oop r8=Oop }
+                                                            ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) org.example.TestHsdis::main@45 (line 19)
+  0x00007af170831602:   testl           %eax, (%r9)         ;   {poll}
+  0x00007af170831605:   cmpl            $0x2710, %ebp
+  0x00007af17083160b:   jge             0x7af170831627
+  0x00007af17083160d:   vmovss          0x10(%r8), %xmm0
+  0x00007af170831613:   vaddss          0x10(%r11), %xmm0, %xmm1
+  0x00007af170831619:   vmovss          %xmm1, 0x10(%r10)
+  0x00007af17083161f:   movl            $1, %r9d
+  0x00007af170831625:   jmp             0x7af1708315bb
+  0x00007af170831627:   movl            $0xffffff45, %esi
+  0x00007af17083162c:   nop             
+  0x00007af17083162f:   callq           0x7af170023580      ; ImmutableOopMap {}
+                                                            ;*if_icmpge {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) org.example.TestHsdis::main@36 (line 19)
+                                                            ;   {runtime_call UncommonTrapBlob}
+  0x00007af170831634:   nopl            0x2000324(%rax, %rax);   {other}
+  0x00007af17083163c:   callq           0x7af170002220      ;   {runtime_call StubRoutines (final stubs)}
+  0x00007af170831641:   jmp             0x7af1708314aa
+  0x00007af170831646:   hlt             
+  0x00007af170831647:   hlt             
+[Exception Handler]
+  0x00007af170831648:   jmp             0x7af1700f5000      ;   {no_reloc}
+[Deopt Handler Code]
+  0x00007af17083164d:   callq           0x7af170831652
+  0x00007af170831652:   subq            $5, (%rsp)
+  0x00007af170831657:   jmp             0x7af1700238a0      ;   {runtime_call DeoptimizationBlob}
+  0x00007af17083165c:   hlt             
+  0x00007af17083165d:   hlt             
+  0x00007af17083165e:   hlt             
+  0x00007af17083165f:   hlt             
+--------------------------------------------------------------------------------

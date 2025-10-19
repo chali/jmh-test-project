@@ -1,0 +1,137 @@
+============================= C2-compiled nmethod ==============================
+----------------------------------- Assembly -----------------------------------
+
+Compiled method (c2) 778  590             org.example.TestHsdis::addArrays (31 bytes)
+ total in heap  [0x00007644e0d80d90,0x00007644e0d811d8] = 1096
+ relocation     [0x00007644e0d80ee0,0x00007644e0d80f00] = 32
+ main code      [0x00007644e0d80f00,0x00007644e0d81168] = 616
+ stub code      [0x00007644e0d81168,0x00007644e0d81180] = 24
+ oops           [0x00007644e0d81180,0x00007644e0d81188] = 8
+ metadata       [0x00007644e0d81188,0x00007644e0d81190] = 8
+ scopes data    [0x00007644e0d81190,0x00007644e0d811a0] = 16
+ scopes pcs     [0x00007644e0d811a0,0x00007644e0d811d0] = 48
+ dependencies   [0x00007644e0d811d0,0x00007644e0d811d8] = 8
+
+[Disassembly]
+--------------------------------------------------------------------------------
+[Constant Pool (empty)]
+
+--------------------------------------------------------------------------------
+
+[Verified Entry Point]
+  # {method} {0x00007644534004d8} 'addArrays' '()V' in 'org/example/TestHsdis'
+  #           [sp+0x20]  (sp of caller)
+  0x00007644e0d80f00:   subq            $0x18, %rsp
+  0x00007644e0d80f07:   movq            %rbp, 0x10(%rsp)
+  0x00007644e0d80f0c:   cmpl            $0, 0x20(%r15)
+  0x00007644e0d80f14:   jne             0x7644e0d8115b
+  0x00007644e0d80f1a:   xorl            %edx, %edx
+  0x00007644e0d80f1c:   movabsq         $0x11e3d0910, %r10  ;   {oop([F{0x000000011e3d0910})}
+  0x00007644e0d80f26:   movl            %r10d, %r11d
+  0x00007644e0d80f29:   shrl            $2, %r11d
+  0x00007644e0d80f2d:   andl            $0xf, %r11d
+  0x00007644e0d80f31:   movabsq         $0x11f999a40, %r8   ;   {oop([F{0x000000011f999a40})}
+  0x00007644e0d80f3b:   movabsq         $0x11e000000, %r9   ;   {oop([F{0x000000011e000000})}
+  0x00007644e0d80f45:   movl            $0xb, %ebx
+  0x00007644e0d80f4a:   subl            %r11d, %ebx
+  0x00007644e0d80f4d:   andl            $0xf, %ebx
+  0x00007644e0d80f50:   incl            %ebx
+  0x00007644e0d80f52:   jmp             0x7644e0d80f56
+  0x00007644e0d80f54:   movl            %ecx, %edx
+  0x00007644e0d80f56:   vmovss          0x10(%r9, %rdx, 4), %xmm1
+  0x00007644e0d80f5d:   vaddss          0x10(%r8, %rdx, 4), %xmm1, %xmm0
+  0x00007644e0d80f64:   vmovss          %xmm0, 0x10(%r10, %rdx, 4)
+  0x00007644e0d80f6b:   leal            1(%rdx), %ecx
+  0x00007644e0d80f6e:   cmpl            %ebx, %ecx
+  0x00007644e0d80f70:   jl              0x7644e0d80f54
+  0x00007644e0d80f72:   incl            %edx
+  0x00007644e0d80f74:   movl            $0x1f400, %ecx
+  0x00007644e0d80f79:   jmp             0x7644e0d810ad
+  0x00007644e0d80f7e:   nop
+  0x00007644e0d80f80:   movl            %ebx, %edx
+  0x00007644e0d80f82:   vmovdqu32               0x10(%r9, %rdx, 4), %zmm0
+  0x00007644e0d80f8d:   vaddps          0x10(%r8, %rdx, 4), %zmm0, %zmm0
+  0x00007644e0d80f98:   vmovdqu32               %zmm0, 0x10(%r10, %rdx, 4)
+  0x00007644e0d80fa3:   vmovdqu32               0x50(%r9, %rdx, 4), %zmm0
+  0x00007644e0d80fae:   vaddps          0x50(%r8, %rdx, 4), %zmm0, %zmm0
+  0x00007644e0d80fb9:   vmovdqu32               %zmm0, 0x50(%r10, %rdx, 4)
+  0x00007644e0d80fc4:   vmovdqu32               0x90(%r9, %rdx, 4), %zmm0
+  0x00007644e0d80fcf:   vaddps          0x90(%r8, %rdx, 4), %zmm0, %zmm0
+  0x00007644e0d80fda:   vmovdqu32               %zmm0, 0x90(%r10, %rdx, 4)
+  0x00007644e0d80fe5:   vmovdqu32               0xd0(%r9, %rdx, 4), %zmm0
+  0x00007644e0d80ff0:   vaddps          0xd0(%r8, %rdx, 4), %zmm0, %zmm0
+  0x00007644e0d80ffb:   vmovdqu32               %zmm0, 0xd0(%r10, %rdx, 4)
+  0x00007644e0d81006:   vmovdqu32               0x110(%r9, %rdx, 4), %zmm0
+  0x00007644e0d81011:   vaddps          0x110(%r8, %rdx, 4), %zmm0, %zmm0
+  0x00007644e0d8101c:   vmovdqu32               %zmm0, 0x110(%r10, %rdx, 4)
+  0x00007644e0d81027:   vmovdqu32               0x150(%r9, %rdx, 4), %zmm0
+  0x00007644e0d81032:   vaddps          0x150(%r8, %rdx, 4), %zmm0, %zmm0
+                                                            ;   {no_reloc}
+  0x00007644e0d8103d:   vmovdqu32               %zmm0, 0x150(%r10, %rdx, 4)
+  0x00007644e0d81048:   vmovdqu32               0x190(%r9, %rdx, 4), %zmm0
+  0x00007644e0d81053:   vaddps          0x190(%r8, %rdx, 4), %zmm0, %zmm0
+  0x00007644e0d8105e:   vmovdqu32               %zmm0, 0x190(%r10, %rdx, 4)
+  0x00007644e0d81069:   vmovdqu32               0x1d0(%r9, %rdx, 4), %zmm0
+  0x00007644e0d81074:   vaddps          0x1d0(%r8, %rdx, 4), %zmm0, %zmm0
+  0x00007644e0d8107f:   vmovdqu32               %zmm0, 0x1d0(%r10, %rdx, 4)
+  0x00007644e0d8108a:   leal            0x80(%rdx), %ebx
+  0x00007644e0d81090:   cmpl            %r11d, %ebx
+  0x00007644e0d81093:   jl              0x7644e0d80f80
+  0x00007644e0d81099:   movq            0x458(%r15), %r11   ; ImmutableOopMap {r10=Oop r8=Oop r9=Oop }
+                                                            ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) org.example.TestHsdis::addArrays@27 (line 28)
+  0x00007644e0d810a0:   testl           %eax, (%r11)        ;   {poll}
+  0x00007644e0d810a3:   cmpl            $0xf41c1, %ebx
+  0x00007644e0d810a9:   jge             0x7644e0d810c9
+  0x00007644e0d810ab:   movl            %ebx, %edx
+  0x00007644e0d810ad:   movl            $0xf41c1, %r11d
+  0x00007644e0d810b3:   subl            %edx, %r11d
+  0x00007644e0d810b6:   cmpl            $0x1f400, %r11d
+  0x00007644e0d810bd:   cmoval          %ecx, %r11d
+  0x00007644e0d810c1:   addl            %edx, %r11d
+  0x00007644e0d810c4:   jmp             0x7644e0d80f82
+  0x00007644e0d810c9:   cmpl            $0xf4231, %ebx
+  0x00007644e0d810cf:   jge             0x7644e0d81141
+  0x00007644e0d810d1:   addl            $0x80, %edx
+  0x00007644e0d810d7:   nop
+  0x00007644e0d810d8:   vmovdqu32               0x10(%r9, %rdx, 4), %zmm0
+  0x00007644e0d810e3:   vaddps          0x10(%r8, %rdx, 4), %zmm0, %zmm0
+  0x00007644e0d810ee:   vmovdqu32               %zmm0, 0x10(%r10, %rdx, 4)
+  0x00007644e0d810f9:   addl            $0x10, %edx
+  0x00007644e0d810fc:   cmpl            $0xf4231, %edx
+  0x00007644e0d81102:   jl              0x7644e0d810d8
+  0x00007644e0d81104:   cmpl            $0xf4240, %edx
+  0x00007644e0d8110a:   jge             0x7644e0d8112b
+  0x00007644e0d8110c:   vmovss          0x10(%r9, %rdx, 4), %xmm1
+  0x00007644e0d81113:   vaddss          0x10(%r8, %rdx, 4), %xmm1, %xmm0
+  0x00007644e0d8111a:   vmovss          %xmm0, 0x10(%r10, %rdx, 4)
+  0x00007644e0d81121:   incl            %edx
+  0x00007644e0d81123:   cmpl            $0xf4240, %edx
+  0x00007644e0d81129:   jl              0x7644e0d8110c
+  0x00007644e0d8112b:   vzeroupper
+  0x00007644e0d8112e:   addq            $0x10, %rsp
+  0x00007644e0d81132:   popq            %rbp
+  0x00007644e0d81133:   cmpq            0x450(%r15), %rsp   ;   {poll_return}
+  0x00007644e0d8113a:   ja              0x7644e0d81145
+  0x00007644e0d81140:   retq
+  0x00007644e0d81141:   movl            %ebx, %edx
+  0x00007644e0d81143:   jmp             0x7644e0d81104
+  0x00007644e0d81145:   movabsq         $0x7644e0d81133, %r10;   {internal_word}
+  0x00007644e0d8114f:   movq            %r10, 0x468(%r15)
+  0x00007644e0d81156:   jmp             0x7644e0c53400      ;   {runtime_call SafepointBlob}
+  0x00007644e0d8115b:   callq           0x7644e0c33220      ;   {runtime_call StubRoutines (final stubs)}
+  0x00007644e0d81160:   jmp             0x7644e0d80f1a
+  0x00007644e0d81165:   hlt
+  0x00007644e0d81166:   hlt
+  0x00007644e0d81167:   hlt
+[Exception Handler]
+  0x00007644e0d81168:   jmp             0x7644e0c8cb80      ;   {no_reloc}
+[Deopt Handler Code]
+  0x00007644e0d8116d:   callq           0x7644e0d81172
+  0x00007644e0d81172:   subq            $5, (%rsp)
+  0x00007644e0d81177:   jmp             0x7644e0c548a0      ;   {runtime_call DeoptimizationBlob}
+  0x00007644e0d8117c:   hlt
+  0x00007644e0d8117d:   hlt
+  0x00007644e0d8117e:   hlt
+  0x00007644e0d8117f:   hlt
+--------------------------------------------------------------------------------
