@@ -42,8 +42,10 @@ java {
 tasks.withType(JavaExec::class).configureEach {
     jvmArgs(
         "-XX:+UnlockDiagnosticVMOptions",
-        "-XX:+PrintAssembly",
         "-Xlog:class+load=info",
-        "-XX:+LogCompilation"
+        "-XX:+LogCompilation",
+        "-XX:+LogCompilation",
+        "-XX:CompileCommand=print,org.example.TestHsdis::*",
+        "-XX:CompileCommand=log,org.example.TestHsdis::*"
     )
 }
