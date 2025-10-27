@@ -50,6 +50,10 @@ tasks.withType(JavaExec::class).configureEach {
 }
 
 jmh {
-    // perf profiler needs to be setup here:
-    profilers = listOf("perfnorm:events=L1-dcache-loads,LLC-loads,LLC-load-misses,L2_RQSTS.ALL_DEMAND_DATA_RD,CYCLE_ACTIVITY.STALLS_TOTAL,CYCLE_ACTIVITY.STALLS_L1D_MISS,CYCLE_ACTIVITY.STALLS_L2_MISS,CYCLE_ACTIVITY.STALLS_L3_MISS,CYCLE_ACTIVITY.CYCLES_L1D_MISS,CYCLE_ACTIVITY.CYCLES_L2_MISS,CYCLE_ACTIVITY.CYCLES_L3_MISS") // Use profilers to collect additional data. Supported profilers: [cl, comp, gc, stack, perf, perfnorm, perfasm, xperf, xperfasm, hs_cl, hs_comp, hs_gc, hs_rt, hs_thr, async]
+    profilers = listOf("perfasm:intelSyntax=true;hotThreshold=0.05")
+    jvmArgs = listOf("-XX:+UnlockExperimentalVMOptions",
+                     "-XX:+UnlockDiagnosticVMOptions",
+                     "-XX:+PreserveFramePointer",
+                     "-XX:+DebugNonSafepoints",
+                     "-XX:+UseEpsilonGC")
 }
